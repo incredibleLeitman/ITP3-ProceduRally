@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/pipe.obj-d2bb6a99e1b68fa21a0ce7879599295a.mesh"
+
+[deps]
+
+files=[ "res://.import/pipe.obj-d2bb6a99e1b68fa21a0ce7879599295a.mesh" ]
+
+source_file="res://models/pipe.obj"
+dest_files=[ "res://.import/pipe.obj-d2bb6a99e1b68fa21a0ce7879599295a.mesh", "res://.import/pipe.obj-d2bb6a99e1b68fa21a0ce7879599295a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
