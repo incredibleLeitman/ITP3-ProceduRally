@@ -20,8 +20,19 @@ func _process(delta):
 		
 	translation += direction
 	
+	var rot = 0;
 	if Input.is_action_pressed("move_left"):
-		rotation_degrees.z += delta * 100
+		rot += delta * 100
 		
 	if Input.is_action_pressed("move_right"):
-		rotation_degrees.z -= delta * 100
+		rot -= delta * 100
+
+	# cap at 90 °
+	var new_rot_z = rotation_degrees.z + rot
+	#if new_rot_z < 90 && new_rot_z > -90:
+	if new_rot_z < 45 && new_rot_z > -45:
+		rotation_degrees.z += rot;
+	print("degrees.z:" + str(rotation_degrees.z))
+
+	if Input.is_action_pressed("move_forward"):
+		translation -= Vector3(0, 0, delta * 100)
