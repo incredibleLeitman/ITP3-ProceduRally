@@ -15,21 +15,22 @@ func _ready():
 func _process(delta):
 	# Handle rotation
 	var rot = 0
-	var movement = Vector3()
+	var movement = Vector3(0, 0, 0)
 	
 	if Input.is_action_pressed("move_left"):
 		#rot -= delta * rot_speed
-		movement.x += -move_speed.z # TODO weird coordinates
+		movement.z += -move_speed.z # TODO weird coordinates
 		
 	if Input.is_action_pressed("move_right"):
 		#rot += delta * rot_speed
-		movement.x += move_speed.z
+		movement.z += move_speed.z
 
-	rotation_degrees.x += rot;
+	# what the fuck
+	rotation_degrees.x += 0;
 
 	# Handle movement
 	if Input.is_action_pressed("move_forward"):
-		movement.z += -move_speed.x # TODO weird coordinates
+		movement.x += move_speed.x
 		
 	# Handle gravity
 	var pull_direction = Vector3()
@@ -44,9 +45,11 @@ func _process(delta):
 		# Calculate upwards direction using the collision normal
 		var normal = pull_ray_down.get_collision_normal()
 		var diff = (normal - transform.basis.y)
+		var rot_vector = diff * delta * rot_speed * diff.length()
 		
 		# Turn more the greater the difference, therefore multiply with length
-		transform.basis.y += diff * delta * rot_speed * diff.length()
+		transform.basis.y += rot_vector
+		transform.basis.y = transform.basis.y.normalized()
 		
 	# Apply
-	move_and_slide(pull_direction * pull_force + movement)
+	move_and_slide(transform.basis * (pull_direction * pull_force + movement))
