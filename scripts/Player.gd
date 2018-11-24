@@ -29,6 +29,9 @@ func _process(delta):
 	rotation_degrees.x += 0;
 
 	# Handle movement
+	if Input.is_action_pressed("move_backward"):
+		movement.z -= -move_speed.x # TODO weird coordinates
+		
 	if Input.is_action_pressed("move_forward"):
 		movement.x += move_speed.x
 		
