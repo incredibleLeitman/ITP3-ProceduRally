@@ -36,3 +36,6 @@ func _process(delta):
 
 	if Input.is_action_pressed("move_forward"):
 		translation -= Vector3(0, 0, delta * 100)
+		
+	if Input.is_action_pressed("move_backward"):
+		translation += Vector3(0, 0, delta * 100)
