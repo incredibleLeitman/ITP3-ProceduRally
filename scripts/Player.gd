@@ -54,5 +54,7 @@ func _process(delta):
 		transform.basis.y += rot_vector
 		transform.basis.y = transform.basis.y.normalized()
 		
+		transform.basis.x = transform.basis.y.cross(transform.basis.z).normalized()
+		
 	# Apply
 	move_and_slide(transform.basis * (pull_direction * pull_force + movement))
