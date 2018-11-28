@@ -26,6 +26,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2.0
+margin_bottom = -2.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -36,15 +38,15 @@ theme = SubResource( 2 )
 use_top_left = false
 _sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Rect", "Size Flags", "Theme" ]
 
-[node name="HSplitContainer" type="HBoxContainer" parent="Container" index="0"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Container" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 708.0
+margin_left = 710.0
 margin_top = 458.0
-margin_right = 1212.0
+margin_right = 1210.0
 margin_bottom = 622.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -55,7 +57,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Pause", "Rect", "Size Flags", "Theme", "Visibility", "custom_constants" ]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Container/HSplitContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Container/HBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -73,7 +75,7 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="Button" type="Button" parent="Container/HSplitContainer/VBoxContainer" index="0"]
+[node name="Button" type="Button" parent="Container/HBoxContainer/VBoxContainer" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -99,7 +101,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="Button2" type="Button" parent="Container/HSplitContainer/VBoxContainer" index="1"]
+[node name="Button2" type="Button" parent="Container/HBoxContainer/VBoxContainer" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -126,27 +128,8 @@ flat = false
 align = 1
 _sections_unfolded = [ "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_fonts" ]
 
-[node name="CenterContainer" type="CenterContainer" parent="Container/HSplitContainer" index="1"]
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 504.0
-margin_right = 504.0
-margin_bottom = 164.0
-rect_min_size = Vector2( 0, 50 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-use_top_left = false
-_sections_unfolded = [ "Anchor", "Rect", "Size Flags" ]
-
-[connection signal="pressed" from="Container/HSplitContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
-
-[connection signal="pressed" from="Container/HSplitContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 
 
