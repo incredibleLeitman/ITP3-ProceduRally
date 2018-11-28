@@ -5,11 +5,18 @@
 
 
 RESSOURCES:
-
-
 Movement
 debuggen -> teilweise kommt man von der Strecke
 
 
 Strecken Generator
 -> add Vektoren zum einfacheren Zusammenbauen
+
+
+- spawn objects
+- "Randomizer" --> Seed for generation to share between clients
+  Godot "rand_seed"
+
+- Entry and exit point in tubes
+
+- ein Object voraus -> als signals
