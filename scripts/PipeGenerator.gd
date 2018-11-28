@@ -22,20 +22,33 @@ func _on_spawn_new_pipes(new_entry, new_dir):
 	cur_seed = arr_seed[1]
 	print("current seed: %d, type: %d" %[cur_seed, type])
 	
+	new_entry = to_local(new_entry)
+	
 	# spawn object depending on type
-	# TODO: set pos, dir and special curve settings
-	var new_pipe
 	if type == Type.STRAIGHT:
-		print("spawning straight on pos " + String(new_entry) + " (cur_pos: " + String(translation) + ")")
-		new_pipe = pipe_sections["straight"].instance()
-		new_pipe.translation = new_entry #TODO: +- offset
-		new_pipe.transform.basis.z = new_dir.normalized()
-		add_child(new_pipe)
-		# after straight -> adding till curve
-		SignalSupervisor.emit_signal("spawn_new_pipes",
-			_on_spawn_new_pipes(to_global(new_pipe.ExitCast.translation), to_global(new_pipe.ExitCast.cast_to)))
+		spawn_section("straight", new_entry, new_dir)
 	elif type == Type.CURVE:
-		print("spawning curve")
-		new_pipe = pipe_sections["curve"].instance()
-		add_child(new_pipe)
+		spawn_section("curve", new_entry, new_dir)
 	pass
+	
+func spawn_section(name, new_entry, new_dir):
+	var new_pipe = pipe_sections[name].instance()
+	new_pipe.translation = new_entry
+	
+	if new_dir == Vector3(0, 0, 1):
+		# same
+		pass
+	elif new_dir == Vector3(1, 0, 0):
+		new_pipe.transform.basis.z = Vector3(1, 0, 0)
+		new_pipe.transform.basis.x = Vector3(0, 0, 1)
+	elif new_dir == Vector3(0, 1, 0):
+		new_pipe.transform.basis.z = Vector3(0, 1, 0)
+		new_pipe.transform.basis.y = Vector3(0, 0, 1)
+	
+	print("I am a " + name + " and my dir is " + String(new_dir))
+	add_child(new_pipe)
+	
+	if name == "straight":
+		SignalSupervisor.emit_signal("spawn_new_pipes",
+			_on_spawn_new_pipes(new_pipe.get_exit_point(), new_pipe.get_exit_dir()))
+	

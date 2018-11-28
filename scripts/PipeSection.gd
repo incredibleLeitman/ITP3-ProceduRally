@@ -14,11 +14,20 @@ export(bool) var spawns_new_pipes = false
 func _ready():
 	EntryArea.connect("body_entered", self, "_on_entry_area_entered")
 	ExitArea.connect("body_entered", self, "_on_exit_area_entered")
+	
+func get_exit_point():
+	return Exit.to_global(ExitCast.translation)
+	
+func get_exit_dir():
+	var new = transform.basis * ExitCast.cast_to
+	print("Before: " + String(ExitCast.cast_to))
+	print("After: " + String(new))
+	return new
 
 func _on_entry_area_entered(body):
 	if spawns_new_pipes:
 		SignalSupervisor.emit_signal("spawn_new_pipes",
-			to_global(ExitCast.translation), to_global(ExitCast.cast_to))
+			get_exit_point(), get_exit_dir())
 		ExitArea.queue_free() # to prevent spawning sections again
 
 func _on_exit_area_entered(body):

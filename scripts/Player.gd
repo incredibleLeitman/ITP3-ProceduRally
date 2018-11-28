@@ -4,7 +4,7 @@ onready var pull_ray_down = get_node("CollisionRays/Down")
 onready var repel_ray_down = get_node("RepelRays/Down")
 
 var pull_speed = 8
-var move_speed = Vector3(30, 0, -18)
+var move_speed = Vector3(50, 0, -18)
 var normalize_rot_speed = 18
 # variables for rotation
 var move_rot_speed_max = 1.5
