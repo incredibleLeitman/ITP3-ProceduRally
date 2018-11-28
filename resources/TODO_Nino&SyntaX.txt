@@ -1,7 +1,7 @@
-- check howto rename nodes
+- check howto rename nodes --> double click on node
 - animatns?
 - correct alignment/filling/spacing
-- moar fencyness
+- moar fencyness --> check resources folder
 
 
 RESSOURCES:

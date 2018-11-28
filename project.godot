@@ -11,11 +11,13 @@ config_version=3
 [application]
 
 config/name="ProceduRally"
-run/main_scene="res://scenes/mainMenu.tscn"
+run/main_scene="res://scenes/PipeTest.tscn"
 config/icon="res://icon.png"
 
 [autoload]
+
 SignalSupervisor="*res://scripts/SignalSupervisor.gd"
+
 [display]
 
 window/size/width=1920
