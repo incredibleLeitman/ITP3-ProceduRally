@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/pipe.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/SpawnSystem.gd" type="Script" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -99,5 +100,9 @@ _sections_unfolded = [ "Collision" ]
 shape = SubResource( 2 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
+
+[node name="SpawnSystem" type="Spatial" parent="." index="1"]
+
+script = ExtResource( 2 )
 
 
