@@ -4,32 +4,42 @@ onready var pull_ray_down = get_node("CollisionRays/Down")
 onready var repel_ray_down = get_node("RepelRays/Down")
 
 var pull_speed = 8
-var move_speed = Vector3(30, 0, 15)
-var rot_speed = 18
+var move_speed = Vector3(30, 0, -18)
+var normalize_rot_speed = 18
+# variables for rotation
+var move_rot_speed_max = 1.5
+var move_rot_speed_cur = 0
+var move_rot_speed_acc = 10
+
+const UP = Vector3( 0, 1, 0 )
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
 
-func _process(delta):
-	# Handle rotation
-	var rot = 0
+func _process(delta):	
+	# Handle movement
 	var movement = Vector3(0, 0, 0)
 	
 	if Input.is_action_pressed("move_left"):
-		#movement.z += -move_speed.z
-		rotate_object_local(Vector3(0, 1, 0), 1 * delta)
+		move_rot_speed_cur += move_rot_speed_acc * delta
+		movement.z += -move_speed.z
+		#rotate_object_local(Vector3(0, 1, 0), 1 * delta)
+	elif Input.is_action_pressed("move_right"):
+		move_rot_speed_cur -= move_rot_speed_acc * delta
+		movement.z += move_speed.z
+		#rotate_object_local(Vector3(0, 1, 0), -1 * delta)
+	elif move_rot_speed_cur != 0:
+		move_rot_speed_cur -= move_rot_speed_cur/abs(move_rot_speed_cur) * move_rot_speed_acc/2 * delta
 		
-	if Input.is_action_pressed("move_right"):
-		#movement.z += move_speed.z
-		rotate_object_local(Vector3(0, 1, 0), -1 * delta)
+	move_rot_speed_cur = clamp(move_rot_speed_cur, -move_rot_speed_max, move_rot_speed_max)
+	rotate_object_local(UP, move_rot_speed_cur * delta)
 
 	# what the fuck
 	# everything breaks without this
 	rotation_degrees.x += 0;
 
-	# Handle movement
 	if Input.is_action_pressed("move_backward"):
 		movement.x += -move_speed.x
 		
@@ -49,7 +59,7 @@ func _process(delta):
 		# Calculate upwards direction using the collision normal
 		var normal = pull_ray_down.get_collision_normal()
 		var diff = (normal - transform.basis.y)
-		var rot_vector = diff * delta * rot_speed * diff.length()
+		var rot_vector = diff * delta * normalize_rot_speed * diff.length()
 		
 		# Turn more the greater the difference, therefore multiply with length
 		transform.basis.y += rot_vector
