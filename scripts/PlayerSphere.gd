@@ -4,8 +4,8 @@ extends Spatial
 onready var light = get_node("OmniLight")
 onready var sphere = get_node("SphereMesh")
 
-var base_glow = 0.5;
-var glow_multiplier = 1.5;
+var base_glow = 2;
+var glow_multiplier = 2.5;
 
 var time = 0 # Keeps track of time for beat effect
 var bpm # beats per minute
