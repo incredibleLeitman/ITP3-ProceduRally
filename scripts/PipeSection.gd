@@ -14,7 +14,7 @@ export(bool) var spawns_new_pipes = false
 func _ready():
 	EntryArea.connect("body_entered", self, "_on_entry_area_entered")
 	ExitArea.connect("body_entered", self, "_on_exit_area_entered")
-	
+
 func get_exit_point():
 	return Exit.to_global(ExitCast.translation)
 	
