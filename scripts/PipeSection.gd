@@ -19,8 +19,8 @@ func _on_entry_area_entered(body):
 	if spawns_new_pipes:
 		SignalSupervisor.emit_signal("spawn_new_pipes",
 			to_global(ExitCast.translation), to_global(ExitCast.cast_to))
-		
+		ExitArea.queue_free() # to prevent spawning sections again
 
 func _on_exit_area_entered(body):
-	print("hallo")
+	# remove passed pipe section
 	queue_free()
