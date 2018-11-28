@@ -1,0 +1,15 @@
+- check howto rename nodes
+- animatns?
+- correct alignment/filling/spacing
+- moar fencyness
+
+
+RESSOURCES:
+
+
+Movement
+debuggen -> teilweise kommt man von der Strecke
+
+
+Strecken Generator
+-> add Vektoren zum einfacheren Zusammenbauen
