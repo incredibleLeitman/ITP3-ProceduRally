@@ -3,9 +3,9 @@ extends KinematicBody
 onready var pull_ray_down = get_node("CollisionRays/Down")
 onready var repel_ray_down = get_node("RepelRays/Down")
 
-var pull_speed = 12
-var move_speed = Vector3(20, 0, 8)
-var rot_speed = 20
+var pull_speed = 8
+var move_speed = Vector3(30, 0, 15)
+var rot_speed = 18
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -18,19 +18,18 @@ func _process(delta):
 	var movement = Vector3(0, 0, 0)
 	
 	if Input.is_action_pressed("move_left"):
-		#rot -= delta * rot_speed
-		movement.z += -move_speed.z # TODO weird coordinates
+		movement.z += -move_speed.z
 		
 	if Input.is_action_pressed("move_right"):
-		#rot += delta * rot_speed
 		movement.z += move_speed.z
 
 	# what the fuck
+	# everything breaks without this
 	rotation_degrees.x += 0;
 
 	# Handle movement
 	if Input.is_action_pressed("move_backward"):
-		movement.z -= -move_speed.x # TODO weird coordinates
+		movement.x += -move_speed.x
 		
 	if Input.is_action_pressed("move_forward"):
 		movement.x += move_speed.x
@@ -53,6 +52,8 @@ func _process(delta):
 		# Turn more the greater the difference, therefore multiply with length
 		transform.basis.y += rot_vector
 		transform.basis.y = transform.basis.y.normalized()
+		
+		transform.basis.x = transform.basis.y.cross(transform.basis.z).normalized()
 		
 	# Apply
 	move_and_slide(transform.basis * (pull_direction * pull_force + movement))

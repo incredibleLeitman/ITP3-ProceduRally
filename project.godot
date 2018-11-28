@@ -15,9 +15,7 @@ run/main_scene="res://scenes/mainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
-
 SignalSupervisor="*res://scripts/SignalSupervisor.gd"
-
 [display]
 
 window/size/width=1920
