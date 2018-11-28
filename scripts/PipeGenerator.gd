@@ -14,13 +14,18 @@ func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
 	pass
+	
+func get_next_random():
+	var arr_seed = rand_seed(cur_seed)
+	var type = abs(arr_seed[0])
+	cur_seed = arr_seed[1]
+	
+	return type
+	
 
 func _on_spawn_new_pipes(new_entry, new_dir):
 	# spawns new item fitting on new position
-	var arr_seed = rand_seed(cur_seed)
-	var type = abs(arr_seed[0])%Type.size()
-	cur_seed = arr_seed[1]
-	print("current seed: %d, type: %d" %[cur_seed, type])
+	var type = get_next_random() % Type.size()
 	
 	new_entry = to_local(new_entry)
 	
@@ -46,6 +51,9 @@ func spawn_section(name, new_entry, new_dir):
 		new_pipe.transform.basis.y = Vector3(0, 0, 1)
 	
 	print("I am a " + name + " and my dir is " + String(new_dir))
+	# Failed approaches for random rotation :(
+	#new_pipe.transform = new_pipe.transform.rotated(new_pipe.to_local(Vector3(0, 0, 1)), 1)
+	#new_pipe.rotate_object_local(Vector3(0, 0, 1), get_next_random() / 1000)
 	add_child(new_pipe)
 	
 	if name == "straight":
