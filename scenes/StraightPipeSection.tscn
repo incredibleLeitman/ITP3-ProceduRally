@@ -33,10 +33,11 @@ lod_max_hysteresis = 0.0
 mesh = ExtResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-_sections_unfolded = [ "Geometry", "Transform" ]
+_sections_unfolded = [ "Transform" ]
 
 [node name="StaticBody" type="StaticBody" parent="MeshInstance" index="0"]
 
+editor/display_folded = true
 input_ray_pickable = true
 input_capture_on_drag = false
 collision_layer = 1024
