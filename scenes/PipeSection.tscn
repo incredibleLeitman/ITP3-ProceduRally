@@ -11,7 +11,7 @@ extents = Vector3( 10, 10, 1 )
 
 extents = Vector3( 10, 10, 1 )
 
-[node name="PipeSection" type="Spatial" index="0"]
+[node name="PipeSection" type="Spatial"]
 
 script = ExtResource( 1 )
 spawns_new_pipes = false
@@ -21,8 +21,6 @@ spawns_new_pipes = false
 script = ExtResource( 2 )
 
 [node name="Entry" type="Spatial" parent="." index="1"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10 )
 
 [node name="EntryPoint" type="RayCast" parent="Entry" index="0"]
 
@@ -63,7 +61,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Exit" type="Spatial" parent="." index="2"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
 
 [node name="ExitPoint" type="RayCast" parent="Exit" index="0"]
 

@@ -4,7 +4,7 @@ onready var pull_ray_down = get_node("CollisionRays/Down")
 onready var repel_ray_down = get_node("RepelRays/Down")
 
 var pull_speed = 8
-var move_speed = Vector3(30, 0, -18)
+var move_speed = Vector3(30, 0, 18)
 var normalize_rot_speed = 18
 # variables for rotation
 var move_rot_speed_max = 1.5
@@ -13,22 +13,23 @@ var move_rot_speed_acc = 10
 
 const UP = Vector3( 0, 1, 0 )
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+var initial_speed = 30
+var increase_per_second = 0.3
 
-func _process(delta):	
+func _ready():
+	move_speed.x = initial_speed
+
+func _process(delta):
 	# Handle movement
 	var movement = Vector3(0, 0, 0)
 	
 	if Input.is_action_pressed("move_left"):
 		move_rot_speed_cur += move_rot_speed_acc * delta
-		movement.z += -move_speed.z
+		movement.z += move_speed.z
 		#rotate_object_local(Vector3(0, 1, 0), 1 * delta)
 	elif Input.is_action_pressed("move_right"):
 		move_rot_speed_cur -= move_rot_speed_acc * delta
-		movement.z += move_speed.z
+		movement.z -= move_speed.z
 		#rotate_object_local(Vector3(0, 1, 0), -1 * delta)
 	elif move_rot_speed_cur != 0:
 		move_rot_speed_cur -= move_rot_speed_cur/abs(move_rot_speed_cur) * move_rot_speed_acc/2 * delta
@@ -39,12 +40,16 @@ func _process(delta):
 	# what the fuck
 	# everything breaks without this
 	rotation_degrees.x += 0;
+	
+	movement.x = move_speed.x
 
-	if Input.is_action_pressed("move_backward"):
-		movement.x += -move_speed.x
-		
-	if Input.is_action_pressed("move_forward"):
-		movement.x += move_speed.x
+#	if Input.is_action_pressed("move_backward"):
+#		movement.x += -move_speed.x
+#
+#	if Input.is_action_pressed("move_forward"):
+#		movement.x += move_speed.x
+
+	move_speed.x += increase_per_second * delta
 		
 	# Handle gravity
 	var pull_direction = Vector3()
