@@ -36,7 +36,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 theme = SubResource( 2 )
 use_top_left = false
-_sections_unfolded = [ "Anchor", "Focus", "Hint", "Margin", "Rect", "Size Flags", "Theme" ]
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Rect", "Size Flags", "Theme" ]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Container" index="0"]
 
