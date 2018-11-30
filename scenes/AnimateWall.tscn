@@ -7,8 +7,10 @@
 
 [node name="Wall" parent="." index="0" instance=ExtResource( 1 )]
 
+collision_layer = 4
+collision_mask = 0
 script = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Camera" type="Camera" parent="." index="1"]
 
