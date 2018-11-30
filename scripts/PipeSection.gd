@@ -35,6 +35,8 @@ func _on_exit_area_entered(body):
 	var player = get_tree().get_root().get_node("World/Player")
 	player.passedSections += 1
 	print("player passedSections: " + String(player.passedSections))
+	global.playerWinner = player.playerName
+	global.passedSections = player.passedSections
 	
 	# remove passed pipe section
 	if has_node("."):

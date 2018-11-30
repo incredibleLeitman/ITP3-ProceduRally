@@ -4,7 +4,7 @@ var pipeSize = 20
 var scaleVar = 5
 
 var obstacles = {
-	"wall": preload("res://scenes/wall.tscn")
+	"wall": preload("res://scenes/AnimateWall.tscn")
 }
 
 func _ready():
