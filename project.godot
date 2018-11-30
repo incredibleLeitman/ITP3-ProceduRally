@@ -11,12 +11,13 @@ config_version=3
 [application]
 
 config/name="ProceduRally"
-run/main_scene="res://scenes/World.tscn"
+run/main_scene="res://scenes/mainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 SignalSupervisor="*res://scripts/SignalSupervisor.gd"
+global="*res://scripts/global.gd"
 
 [display]
 
