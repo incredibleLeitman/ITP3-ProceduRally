@@ -20,16 +20,17 @@ func get_exit_point():
 	
 func get_exit_dir():
 	var new = transform.basis * ExitCast.cast_to
-	print("Before: " + String(ExitCast.cast_to))
-	print("After: " + String(new))
 	return new
 
 func _on_entry_area_entered(body):
 	if spawns_new_pipes:
 		SignalSupervisor.emit_signal("spawn_new_pipes",
 			get_exit_point(), get_exit_dir())
-		ExitArea.queue_free() # to prevent spawning sections again
+			
+		if has_node("Exit/ExitArea"):
+			ExitArea.queue_free() # to prevent spawning sections again
 
 func _on_exit_area_entered(body):
 	# remove passed pipe section
-	queue_free()
+	if has_node("."):
+		queue_free()

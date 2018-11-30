@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 SignalSupervisor="*res://scripts/SignalSupervisor.gd"
+MusicData="*res://scripts/MusicData.gd"
 
 [display]
 

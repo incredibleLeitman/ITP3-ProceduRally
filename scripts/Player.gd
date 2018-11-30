@@ -45,7 +45,7 @@ func _process(delta):
 
 #	if Input.is_action_pressed("move_backward"):
 #		movement.x += -move_speed.x
-#
+
 #	if Input.is_action_pressed("move_forward"):
 #		movement.x += move_speed.x
 
