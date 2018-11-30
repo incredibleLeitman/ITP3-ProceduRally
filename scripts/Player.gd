@@ -11,6 +11,8 @@ var move_rot_speed_max = 1.5
 var move_rot_speed_cur = 0
 var move_rot_speed_acc = 10
 
+export var passedSections = 0
+
 const UP = Vector3( 0, 1, 0 )
 
 var initial_speed = 30

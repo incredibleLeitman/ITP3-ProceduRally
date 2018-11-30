@@ -31,6 +31,11 @@ func _on_entry_area_entered(body):
 			ExitArea.queue_free() # to prevent spawning sections again
 
 func _on_exit_area_entered(body):
+	#var player = get_node("")
+	var player = get_tree().get_root().get_node("World/Player")
+	player.passedSections += 1
+	print("player passedSections: " + String(player.passedSections))
+	
 	# remove passed pipe section
 	if has_node("."):
 		queue_free()
