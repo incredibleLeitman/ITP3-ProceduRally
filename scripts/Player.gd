@@ -23,11 +23,11 @@ func _process(delta):
 	# Handle movement
 	var movement = Vector3(0, 0, 0)
 	
-	if Input.is_action_pressed("move_left"):
+	if Input.is_action_pressed("move_left") || Input.is_action_pressed("ui_left"):
 		move_rot_speed_cur += move_rot_speed_acc * delta
 		movement.z += move_speed.z
 		#rotate_object_local(Vector3(0, 1, 0), 1 * delta)
-	elif Input.is_action_pressed("move_right"):
+	elif Input.is_action_pressed("move_right") || Input.is_action_pressed("ui_right"):
 		move_rot_speed_cur -= move_rot_speed_acc * delta
 		movement.z -= move_speed.z
 		#rotate_object_local(Vector3(0, 1, 0), -1 * delta)
@@ -45,7 +45,7 @@ func _process(delta):
 
 #	if Input.is_action_pressed("move_backward"):
 #		movement.x += -move_speed.x
-#
+
 #	if Input.is_action_pressed("move_forward"):
 #		movement.x += move_speed.x
 

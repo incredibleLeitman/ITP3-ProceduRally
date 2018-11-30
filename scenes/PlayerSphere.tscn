@@ -81,7 +81,7 @@ _sections_unfolded = [ "material" ]
 
 layers = 1
 light_color = Color( 1, 0, 0, 1 )
-light_energy = 1.8047
+light_energy = 1.07567
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 1.0
