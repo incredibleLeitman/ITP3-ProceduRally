@@ -18,8 +18,11 @@ const UP = Vector3( 0, 1, 0 )
 var initial_speed = 30
 var increase_per_second = 0.3
 
+var auto_speed = true
+
 func _ready():
-	move_speed.x = initial_speed
+	if (auto_speed == true):
+		move_speed.x = initial_speed
 
 func _process(delta):
 	# Handle movement
@@ -43,15 +46,15 @@ func _process(delta):
 	# everything breaks without this
 	rotation_degrees.x += 0;
 	
-	movement.x = move_speed.x
+	if (auto_speed == false):
+		if Input.is_action_pressed("move_backward"):
+			movement.x += -move_speed.x
 
-#	if Input.is_action_pressed("move_backward"):
-#		movement.x += -move_speed.x
-
-#	if Input.is_action_pressed("move_forward"):
-#		movement.x += move_speed.x
-
-	move_speed.x += increase_per_second * delta
+		if Input.is_action_pressed("move_forward"):
+			movement.x += move_speed.x
+	else:
+		movement.x = move_speed.x	
+		move_speed.x += increase_per_second * delta
 		
 	# Handle gravity
 	var pull_direction = Vector3()
