@@ -26,11 +26,18 @@ func _on_entry_area_entered(body):
 	if spawns_new_pipes:
 		SignalSupervisor.emit_signal("spawn_new_pipes",
 			get_exit_point(), get_exit_dir())
-			
-		if has_node("Exit/ExitArea"):
-			ExitArea.queue_free() # to prevent spawning sections again
+
+		if has_node("Entry/EntryArea"):
+			Entry.queue_free() # to prevent spawning sections again
 
 func _on_exit_area_entered(body):
+	#adding passed sections
+	var player = get_tree().get_root().get_node("World/Player")
+	player.passedSections += 1
+	print("player passedSections: " + String(player.passedSections))
+	global.playerWinner = player.playerName
+	global.passedSections = player.passedSections
+	
 	# remove passed pipe section
 	if has_node("."):
 		queue_free()

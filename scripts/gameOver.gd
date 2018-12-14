@@ -1,10 +1,10 @@
 extends Node
 
 func _ready():
-	#var labelWinner = get_child("LabelWinner")
-	#var labelWinner = get_tree().get_root().find_node("LabelWinner")
 	var labelWinner = get_node("CenterContainer/HBoxContainer/LabelWinner")
-	labelWinner.text = labelWinner.text.replace("%Player", global.playerWinner)
+	#TODO get player name and passedPipes from superior sources (aerver?)
+	labelWinner.text = labelWinner.text.replace("%player", global.playerWinner)
+	labelWinner.text = labelWinner.text.replace("%amount", global.passedSections)
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://scenes/mainMenu.tscn")

@@ -1,9 +1,5 @@
 extends RigidBody
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 var velocity = Vector3()
 var max_moved = Vector3()
 
@@ -16,7 +12,7 @@ func _ready():
 	self.linear_velocity = velocity
 	self.gravity_scale = 0
 	
-	print(size)
+	print("in ctor Wall with size: " + String(size))
 	pass
 func _process(delta):
 	var moved = self.transform.origin

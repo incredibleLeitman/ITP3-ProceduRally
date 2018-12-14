@@ -3,7 +3,7 @@
 [ext_resource path="res://scripts/gameOver.gd" type="Script" id=1]
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -30,9 +30,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 917.0
+margin_left = 814.0
 margin_top = 429.0
-margin_right = 1003.0
+margin_right = 1106.0
 margin_bottom = 651.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -49,7 +49,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 86.0
+margin_right = 292.0
 margin_bottom = 90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -75,7 +75,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 94.0
-margin_right = 86.0
+margin_right = 292.0
 margin_bottom = 184.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -84,7 +84,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = ExtResource( 2 )
-text = "%Player Won!
+text = "%player won with %amount passed sections!
 
 "
 align = 1
@@ -101,7 +101,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 188.0
-margin_right = 86.0
+margin_right = 292.0
 margin_bottom = 222.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
