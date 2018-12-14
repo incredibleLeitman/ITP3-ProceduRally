@@ -17,7 +17,7 @@ distance_field = false
 
 default_font = SubResource( 1 )
 
-[node name="mainMenu" type="Node" index="0"]
+[node name="mainMenu" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -45,9 +45,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 706.0
+margin_left = 710.0
 margin_top = 290.0
-margin_right = 1214.0
+margin_right = 1210.0
 margin_bottom = 790.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -64,7 +64,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 508.0
+margin_right = 500.0
 margin_bottom = 500.0
 rect_min_size = Vector2( 500, 500 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -78,12 +78,12 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 
 [node name="single_player" parent="Container/HBoxContainer/VBoxContainer" index="0" instance=ExtResource( 2 )]
 
-visible = false
 text = "SINKL PLAYRE"
 
 [node name="multi_player" parent="Container/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 2 )]
 
-visible = false
+margin_top = 84.0
+margin_bottom = 164.0
 text = "MULIT PLAYRE"
 
 [node name="host" parent="Container/HBoxContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
@@ -100,11 +100,12 @@ text = "JONI"
 
 [node name="start_game" parent="Container/HBoxContainer/VBoxContainer" index="4" instance=ExtResource( 2 )]
 
-margin_right = 508.0
+visible = false
 text = "STRAT"
 
 [node name="song_selection" type="HBoxContainer" parent="Container/HBoxContainer/VBoxContainer" index="5"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -144,12 +145,13 @@ text = ">"
 
 [node name="song_duration" type="CenterContainer" parent="Container/HBoxContainer/VBoxContainer" index="6"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 168.0
-margin_right = 508.0
+margin_right = 500.0
 margin_bottom = 248.0
 rect_min_size = Vector2( 0, 80 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -167,9 +169,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 104.0
+margin_left = 100.0
 margin_top = 20.0
-margin_right = 404.0
+margin_right = 400.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 300, 40 )
 rect_pivot_offset = Vector2( 0, 0 )
@@ -193,16 +195,15 @@ _sections_unfolded = [ "Caret", "Placeholder", "Rect", "custom_colors", "custom_
 
 [node name="back" parent="Container/HBoxContainer/VBoxContainer" index="7" instance=ExtResource( 2 )]
 
-margin_top = 252.0
-margin_right = 508.0
-margin_bottom = 332.0
+visible = false
+margin_top = 168.0
+margin_bottom = 248.0
 text = "BAC"
 
 [node name="exit" parent="Container/HBoxContainer/VBoxContainer" index="8" instance=ExtResource( 2 )]
 
-visible = false
-margin_top = 336.0
-margin_bottom = 416.0
+margin_top = 168.0
+margin_bottom = 248.0
 text = "SPOT"
 
 [node name="Button2" type="Button" parent="Container/HBoxContainer/VBoxContainer" index="9"]
@@ -235,13 +236,14 @@ _sections_unfolded = [ "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", 
 
 [node name="HSlider" type="HSlider" parent="Container/HBoxContainer/VBoxContainer" index="10"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 336.0
-margin_right = 508.0
-margin_bottom = 352.0
+margin_top = 252.0
+margin_right = 500.0
+margin_bottom = 268.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -263,13 +265,14 @@ focus_mode = 2
 
 [node name="Label" type="Label" parent="Container/HBoxContainer/VBoxContainer" index="11"]
 
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 356.0
-margin_right = 508.0
-margin_bottom = 384.0
+margin_top = 252.0
+margin_right = 500.0
+margin_bottom = 280.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -282,6 +285,20 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/single_player" to="." method="_on_single_player_pressed"]
+
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/multi_player" to="." method="_on_multi_player_pressed"]
+
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/host" to="." method="_on_host_pressed"]
+
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/join" to="." method="_on_join_pressed"]
+
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/start_game" to="." method="_on_start_game_pressed"]
+
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
+
+[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
 
 [connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 
