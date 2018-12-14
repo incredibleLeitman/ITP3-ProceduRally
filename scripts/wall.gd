@@ -6,7 +6,7 @@ var max_moved = Vector3()
 # TODO make a proper vector so it can spawn anywhere and still goes right direction (not only on y axis)
 func _ready():
 	var size = get_child(0).mesh.size
-	max_moved = Vector3(0, size.y, 0)
+	max_moved = Vector3(0, size.y + 2, 0)
 	velocity = Vector3(0, 0.005 * size.y, 0)
 	
 	self.linear_velocity = velocity
