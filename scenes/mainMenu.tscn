@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/mainMenu.gd" type="Script" id=1]
-[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/menuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="BitmapFont" id=1]
 
@@ -16,7 +17,7 @@ distance_field = false
 
 default_font = SubResource( 1 )
 
-[node name="mainMenu" type="Node"]
+[node name="mainMenu" type="Node" index="0"]
 
 script = ExtResource( 1 )
 
@@ -44,10 +45,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 710.0
-margin_top = 432.0
-margin_right = 1210.0
-margin_bottom = 648.0
+margin_left = 706.0
+margin_top = 290.0
+margin_right = 1214.0
+margin_bottom = 790.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -63,9 +64,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 500.0
-margin_bottom = 216.0
-rect_min_size = Vector2( 500, 0 )
+margin_right = 508.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 500, 500 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -75,14 +76,145 @@ size_flags_vertical = 1
 alignment = 0
 _sections_unfolded = [ "Rect", "Size Flags" ]
 
-[node name="Button" type="Button" parent="Container/HBoxContainer/VBoxContainer" index="0"]
+[node name="single_player" parent="Container/HBoxContainer/VBoxContainer" index="0" instance=ExtResource( 2 )]
+
+visible = false
+text = "SINKL PLAYRE"
+
+[node name="multi_player" parent="Container/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 2 )]
+
+visible = false
+text = "MULIT PLAYRE"
+
+[node name="host" parent="Container/HBoxContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
+
+visible = false
+text = "HOTS"
+
+[node name="join" parent="Container/HBoxContainer/VBoxContainer" index="3" instance=ExtResource( 2 )]
+
+visible = false
+margin_top = 84.0
+margin_bottom = 164.0
+text = "JONI"
+
+[node name="start_game" parent="Container/HBoxContainer/VBoxContainer" index="4" instance=ExtResource( 2 )]
+
+margin_right = 508.0
+text = "STRAT"
+
+[node name="song_selection" type="HBoxContainer" parent="Container/HBoxContainer/VBoxContainer" index="5"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_top = 84.0
+margin_right = 508.0
+margin_bottom = 164.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+
+[node name="left" parent="Container/HBoxContainer/VBoxContainer/song_selection" index="0" instance=ExtResource( 2 )]
+
+margin_right = 60.0
+rect_min_size = Vector2( 60, 80 )
+text = "<"
+_sections_unfolded = [ "Margin", "Rect", "custom_fonts", "custom_styles" ]
+
+[node name="name" parent="Container/HBoxContainer/VBoxContainer/song_selection" index="1" instance=ExtResource( 2 )]
+
+margin_left = 64.0
+margin_right = 444.0
+rect_min_size = Vector2( 380, 80 )
+disabled = true
+text = "SONG TITLE"
+
+[node name="right" parent="Container/HBoxContainer/VBoxContainer/song_selection" index="2" instance=ExtResource( 2 )]
+
+margin_left = 448.0
+margin_right = 508.0
+rect_min_size = Vector2( 60, 80 )
+text = ">"
+
+[node name="song_duration" type="CenterContainer" parent="Container/HBoxContainer/VBoxContainer" index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 168.0
+margin_right = 508.0
+margin_bottom = 248.0
+rect_min_size = Vector2( 0, 80 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+_sections_unfolded = [ "Rect" ]
+
+[node name="LineEdit" type="LineEdit" parent="Container/HBoxContainer/VBoxContainer/song_duration" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_top = 20.0
+margin_right = 404.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 40 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 1
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+max_length = 10
+expand_to_text_length = true
+focus_mode = 2
+context_menu_enabled = true
+placeholder_text = "SONG DURATION IN SECONDS (0 FOR ENDLESS)"
+placeholder_alpha = 0.6
+caret_blink = true
+caret_blink_speed = 0.65
+caret_position = 0
+_sections_unfolded = [ "Caret", "Placeholder", "Rect", "custom_colors", "custom_fonts", "custom_styles" ]
+
+[node name="back" parent="Container/HBoxContainer/VBoxContainer" index="7" instance=ExtResource( 2 )]
+
+margin_top = 252.0
+margin_right = 508.0
+margin_bottom = 332.0
+text = "BAC"
+
+[node name="exit" parent="Container/HBoxContainer/VBoxContainer" index="8" instance=ExtResource( 2 )]
+
+visible = false
+margin_top = 336.0
+margin_bottom = 416.0
+text = "SPOT"
+
+[node name="Button2" type="Button" parent="Container/HBoxContainer/VBoxContainer" index="9"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 168.0
 margin_right = 500.0
-margin_bottom = 80.0
+margin_bottom = 248.0
 rect_min_size = Vector2( 0, 80 )
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -91,25 +223,25 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "STRAT"
+text = "keep me safe"
 flat = false
 align = 1
-_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
+_sections_unfolded = [ "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_fonts" ]
 
-[node name="HSlider" type="HSlider" parent="Container/HBoxContainer/VBoxContainer" index="1"]
+[node name="HSlider" type="HSlider" parent="Container/HBoxContainer/VBoxContainer" index="10"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 84.0
-margin_right = 500.0
-margin_bottom = 100.0
+margin_top = 336.0
+margin_right = 508.0
+margin_bottom = 352.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -129,56 +261,27 @@ tick_count = 0
 ticks_on_borders = false
 focus_mode = 2
 
-[node name="Label" type="Label" parent="Container/HBoxContainer/VBoxContainer" index="2"]
+[node name="Label" type="Label" parent="Container/HBoxContainer/VBoxContainer" index="11"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 104.0
-margin_right = 500.0
-margin_bottom = 132.0
+margin_top = 356.0
+margin_right = 508.0
+margin_bottom = 384.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Tracktime: %input second"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
-
-[node name="Button2" type="Button" parent="Container/HBoxContainer/VBoxContainer" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 136.0
-margin_right = 500.0
-margin_bottom = 216.0
-rect_min_size = Vector2( 0, 80 )
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 2 )
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "SPOT"
-flat = false
-align = 1
-_sections_unfolded = [ "Mouse", "Rect", "Size Flags", "Theme", "custom_colors", "custom_fonts" ]
-
-[connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
 
 [connection signal="pressed" from="Container/HBoxContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
 
