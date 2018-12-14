@@ -5,6 +5,7 @@ onready var repel_ray_down = get_node("RepelRays/Down")
 
 var pull_speed = 8
 var move_speed = Vector3(30, 0, 18)
+
 var normalize_rot_speed = 18
 # variables for rotation
 var move_rot_speed_max = 1.5
@@ -14,7 +15,8 @@ var move_rot_speed_acc = 10
 export var playerName = ""
 export var passedSections = 0
 
-const UP = Vector3( 0, 1, 0 )
+const UP = Vector3(0, 1, 0)
+const FORWARD = Vector3(1, 0, 0)
 
 var initial_speed = 30
 var increase_per_second = 0.3
@@ -24,6 +26,28 @@ var auto_speed = true
 func _ready():
 	if (auto_speed == true):
 		move_speed.x = initial_speed
+
+	# connect to collider event handling
+	SignalSupervisor.connect("player_collision", self, "_on_collision")
+
+func _on_collision():
+	# TODO: distinguish between different objects
+	print("on player collision")
+	#case 1: gravity changer
+	# TODO: rotate
+	#player_model.rotate(player_model.transform.basis.x, 180)
+	#rotate_object_local(FORWARD, PI/2)
+	#transform.basis.y = -transform.basis.y
+	#transform.basis.y = transform.basis.y.normalized()
+	#transform.basis.x = transform.basis.y.cross(transform.basis.z).normalized()
+	
+	# TODO: push
+	#player_model.transform.origin += Vector3(0, 0, 10)
+	#self.transform.origin += Vector3(0, 0, 10)
+	#move_and_slide(transform.basis * Vector3(0, 0, 10))
+	
+	#case 2: speed booster
+	#case 3: obstacles
 
 func _process(delta):
 	# Handle movement
@@ -75,7 +99,6 @@ func _process(delta):
 		# Turn more the greater the difference, therefore multiply with length
 		transform.basis.y += rot_vector
 		transform.basis.y = transform.basis.y.normalized()
-		
 		transform.basis.x = transform.basis.y.cross(transform.basis.z).normalized()
 		
 	# Apply

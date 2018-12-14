@@ -25,4 +25,4 @@ func _on_spawn_obstacle(name):
 	
 	# TODO make a vector that properly represents the translation depending on position spawned
 	new_node.set_translation(Vector3(0, -(pipeSize/2) - scaleVar, 0))
-	#add_child(new_node)
+	add_child(new_node)
