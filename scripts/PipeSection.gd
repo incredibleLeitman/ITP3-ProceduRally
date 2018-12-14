@@ -38,6 +38,8 @@ func _on_exit_area_entered(body):
 	global.playerWinner = player.playerName
 	global.passedSections = player.passedSections
 	
+	SignalSupervisor.emit_signal("player_collision")
+	
 	# remove passed pipe section
 	if has_node("."):
 		queue_free()

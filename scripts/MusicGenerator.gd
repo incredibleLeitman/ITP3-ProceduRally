@@ -35,7 +35,6 @@ func _on_player_finished():
 	
 	var obstacles = part_dict[current_part].obstacles_spawned
 	# insert in queue --> TODO: maybe block for thread safety?
-	#global.obstacles.append(obstacle);
-	global.obstacles = obstacles;
+	global.setObstacles(obstacles)
 	for obstacle in obstacles:
 		SignalSupervisor.emit_signal("spawn_obstacle", obstacle)
