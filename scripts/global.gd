@@ -6,6 +6,9 @@ var trackLength = 400 #length of the track in seconds -> TODO: make GUI elements
 
 #global array to notify pipe sections with obstacles to spawn
 var obstacles = []
+func setObstacles (var i_obs):
+	obstacles = i_obs
+	print("current obstacle count: " + String(obstacles.size()))
 
 # TODO: maybe insert global event here? (Pause, Escape...? )
 #func _process(delta):
