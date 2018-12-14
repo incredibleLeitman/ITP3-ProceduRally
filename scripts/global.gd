@@ -2,7 +2,10 @@ extends Node
 
 var playerWinner = "nobody"
 var passedSections = 0
-#var trackLength = 20 #length of the track in seconds -> TODO: make GUI elements for this
+var trackLength = 400 #length of the track in seconds -> TODO: make GUI elements for this
+
+#global array to notify pipe sections with obstacles to spawn
+var obstacles = []
 
 # TODO: maybe insert global event here? (Pause, Escape...? )
 #func _process(delta):

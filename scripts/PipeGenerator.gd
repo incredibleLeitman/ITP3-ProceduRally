@@ -50,12 +50,17 @@ func spawn_section(name, new_entry, new_dir):
 		new_pipe.transform.basis.z = Vector3(0, 1, 0)
 		new_pipe.transform.basis.y = Vector3(0, 0, 1)
 	
-	print("I am a " + name + " and my dir is " + String(new_dir))
+	print("Section spawn: " + name + " with dir: " + String(new_dir))
 	# Failed approaches for random rotation :(
 	#new_pipe.transform = new_pipe.transform.rotated(new_pipe.to_local(Vector3(0, 0, 1)), 1)
 	#new_pipe.rotate_object_local(Vector3(0, 0, 1), get_next_random() / 1000)
 	add_child(new_pipe)
 	
+	# check for current obstacles and add them to new pipes
+	for obstacle in global.obstacles:
+		SignalSupervisor.emit_signal("spawn_obstacle", obstacle)
+	
+	# spawn more pipes until reach a curve
 	if name == "straight":
 		SignalSupervisor.emit_signal("spawn_new_pipes",
 			_on_spawn_new_pipes(new_pipe.get_exit_point(), new_pipe.get_exit_dir()))

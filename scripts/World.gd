@@ -3,6 +3,11 @@ extends Spatial
 onready var StartCast = get_node("StartCast")
 
 func _ready():
+	# TODO: set from main menue
+	var timer = get_node("Timer")
+	timer.wait_time = global.trackLength
+	timer.start()
+	
 	SignalSupervisor.emit_signal("spawn_new_pipes",
 		StartCast.translation, StartCast.cast_to)
 
