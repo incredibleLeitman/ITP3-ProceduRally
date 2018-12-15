@@ -8,8 +8,17 @@ func _ready():
 	timer.wait_time = global.trackLength
 	timer.start()
 	
-	SignalSupervisor.emit_signal("spawn_new_pipes",
-		StartCast.translation, StartCast.cast_to)
+	#SignalSupervisor.emit_signal("spawn_new_pipes",
+	#	StartCast.translation, StartCast.cast_to)
+
+	var exit_point = StartCast.translation
+	var exit_dir = StartCast.cast_to
+	if exit_point == null:
+		print("Exit Point not found!")
+	elif exit_dir == null:
+		print("Exit dir not found!")
+	else:
+		SignalSupervisor.emit_signal("spawn_new_pipes", exit_point, exit_dir)
 
 func _process(delta):
 	if Input.is_action_pressed("ui_cancel"):

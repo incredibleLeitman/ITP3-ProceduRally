@@ -12,11 +12,13 @@ func _ready():
 	self.linear_velocity = velocity
 	self.gravity_scale = 0
 	
-	print("in ctor Wall with size: " + String(size))
+	#print("in ctor Wall with size: " + String(size))
 	pass
+
 func _process(delta):
+	# Called every frame. Delta is time since last frame.
+	# Update game logic here.
 	var moved = self.transform.origin
-	
 	
 	if(moved < max_moved):
 		var velocity = self.linear_velocity
@@ -25,8 +27,4 @@ func _process(delta):
 		self.transform.origin = max_moved
 		# print(self.transform.origin)
 		self.linear_velocity = Vector3(0,0,0)
-	
-	
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
 	pass
