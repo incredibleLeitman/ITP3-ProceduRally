@@ -9,10 +9,10 @@ var pipe_sections = {
 }
 
 func _ready():
-	SignalSupervisor.connect("spawn_new_pipes", self, "_on_spawn_new_pipes")
-	cur_seed = randi()
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	SignalSupervisor.connect("spawn_new_pipes", self, "_on_spawn_new_pipes")
+	cur_seed = randi()
 	pass
 	
 func get_next_random():
@@ -21,7 +21,6 @@ func get_next_random():
 	cur_seed = arr_seed[1]
 	
 	return type
-	
 
 func _on_spawn_new_pipes(new_entry, new_dir):
 	# spawns new item fitting on new position
@@ -57,11 +56,18 @@ func spawn_section(name, new_entry, new_dir):
 	add_child(new_pipe)
 	
 	# check for current obstacles and add them to new pipes
-	for obstacle in global.obstacles:
+	for obstacle in global.getObstacles():
 		SignalSupervisor.emit_signal("spawn_obstacle", obstacle)
 	
 	# spawn more pipes until reach a curve
 	if name == "straight":
-		SignalSupervisor.emit_signal("spawn_new_pipes",
-			_on_spawn_new_pipes(new_pipe.get_exit_point(), new_pipe.get_exit_dir()))
+		var exit_point = new_pipe.get_exit_point()
+		var exit_dir = new_pipe.get_exit_dir()
+		if exit_point == null:
+			print("Exit Point not found!")
+		elif exit_dir == null:
+			print("Exit dir not found!")
+		else:
+			#SignalSupervisor.emit_signal("spawn_new_pipes", _on_spawn_new_pipes(exit_point, exit_dir))
+			SignalSupervisor.emit_signal("spawn_new_pipes", exit_point, exit_dir)
 	
