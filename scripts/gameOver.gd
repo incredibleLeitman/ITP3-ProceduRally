@@ -8,3 +8,7 @@ func _ready():
 
 func _on_Button_pressed():
 	get_tree().change_scene("res://scenes/mainMenu.tscn")
+
+
+func _on_ButtonExit_pressed():
+	get_tree().quit()
