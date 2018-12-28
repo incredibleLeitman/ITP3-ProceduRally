@@ -21,7 +21,9 @@ const FORWARD = Vector3(1, 0, 0)
 var initial_speed = 30
 var increase_per_second = 0.3
 
-var auto_speed = true
+var auto_speed = false
+
+var just_collided = false
 
 func _ready():
 	if (auto_speed == true):
@@ -33,18 +35,12 @@ func _ready():
 func _on_collision():
 	# TODO: distinguish between different objects
 	print("on player collision")
-	#case 1: gravity changer
-	# TODO: rotate
-	#player_model.rotate(player_model.transform.basis.x, 180)
-	#rotate_object_local(FORWARD, PI/2)
-	#transform.basis.y = -transform.basis.y
-	#transform.basis.y = transform.basis.y.normalized()
-	#transform.basis.x = transform.basis.y.cross(transform.basis.z).normalized()
 	
-	# TODO: push
-	#player_model.transform.origin += Vector3(0, 0, 10)
-	#self.transform.origin += Vector3(0, 0, 10)
-	#move_and_slide(transform.basis * Vector3(0, 0, 10))
+	#case 1: gravity changer
+	transform.basis = transform.basis.rotated(transform.basis.x, PI)
+	just_collided = true # signal asynchronous -> wait 1 frame
+	
+	# TODO: Make pull_speed lower and slowly go back to default value
 	
 	#case 2: speed booster
 	#case 3: obstacles
@@ -66,10 +62,6 @@ func _process(delta):
 		
 	move_rot_speed_cur = clamp(move_rot_speed_cur, -move_rot_speed_max, move_rot_speed_max)
 	rotate_object_local(UP, move_rot_speed_cur * delta)
-
-	# what the fuck
-	# everything breaks without this
-	rotation_degrees.x += 0;
 	
 	if (auto_speed == false):
 		if Input.is_action_pressed("move_backward"):
@@ -85,7 +77,7 @@ func _process(delta):
 	var pull_direction = Vector3()
 	var pull_force = 0
 	
-	if pull_ray_down.is_colliding():
+	if pull_ray_down.is_colliding() and not just_collided:
 		# Get the pull force based on the difference of target and current collision point
 		pull_direction = pull_ray_down.cast_to.normalized()
 		pull_force = pull_ray_down.get_collision_point().distance_to(translation) - repel_ray_down.cast_to.length()
@@ -96,10 +88,16 @@ func _process(delta):
 		var diff = (normal - transform.basis.y)
 		var rot_vector = diff * delta * normalize_rot_speed * diff.length()
 		
+		print(normal)
+		
 		# Turn more the greater the difference, therefore multiply with length
 		transform.basis.y += rot_vector
 		transform.basis.y = transform.basis.y.normalized()
 		transform.basis.x = transform.basis.y.cross(transform.basis.z).normalized()
 		
+		transform.basis = transform.basis.orthonormalized()
+		
 	# Apply
 	move_and_slide(transform.basis * (pull_direction * pull_force + movement))
+	
+	just_collided = false
