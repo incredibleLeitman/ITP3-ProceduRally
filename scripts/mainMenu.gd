@@ -86,6 +86,11 @@ func _on_back_pressed():
 		hide_show()
 
 
-
+#VOLUME
 func _on_vslide_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
+
+
+func _on_AudioStreamPlayer_finished():
+	var player = get_node("AudioStreamPlayer")
+	player.playing = true
