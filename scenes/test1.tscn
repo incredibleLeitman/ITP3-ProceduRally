@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/StraightPipeSection.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/LED.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/wall.tscn" type="PackedScene" id=3]
+
+[node name="Node" type="Node" index="0"]
+
+[node name="StraightPipeSection" parent="." index="0" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19842, 1.0676, -13.6773 )
+
+[node name="Node" parent="." index="1" instance=ExtResource( 2 )]
+
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.76689, -0.517333, 0.00312495 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Wall" parent="." index="2" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.437, -1.48926, 1.24855 )
+
+[node name="Camera" type="Camera" parent="." index="3"]
+
+transform = Transform( -0.998301, 0, -0.0582695, 0, 1, 0, 0.0582695, 0, -0.998301, 5.77278, -0.0216713, -7.06621 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 68.5926
+size = 1.0
+near = 0.05
+far = 100.0
+
+
