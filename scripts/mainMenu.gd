@@ -8,7 +8,7 @@ var menuNavigation = 0;
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
-	pass
+	hide_show()
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -41,6 +41,11 @@ func _on_host_pressed():
 func _on_join_pressed():
 	menuNavigation = 3
 	hide_show()
+	
+
+func _on_options_pressed():
+	menuNavigation = 5
+	hide_show()
 
 
 func hide_show():
@@ -51,6 +56,7 @@ func hide_show():
 	if(menuNavigation == 0):
 		get_node("Container/HBoxContainer/VBoxContainer/single_player").show()
 		get_node("Container/HBoxContainer/VBoxContainer/multi_player").show()
+		get_node("Container/HBoxContainer/VBoxContainer/options").show()
 		get_node("Container/HBoxContainer/VBoxContainer/exit").show()
 	elif(menuNavigation == 1 || menuNavigation == 2):
 		get_node("Container/HBoxContainer/VBoxContainer/start_game").show()
@@ -64,11 +70,13 @@ func hide_show():
 		get_node("Container/HBoxContainer/VBoxContainer/host").show()
 		get_node("Container/HBoxContainer/VBoxContainer/join").show()
 		get_node("Container/HBoxContainer/VBoxContainer/back").show()
-		
+	elif(menuNavigation == 5):
+		get_node("Container/HBoxContainer/VBoxContainer/volume").show()
+		get_node("Container/HBoxContainer/VBoxContainer/back").show()
 
 func _on_back_pressed():
 	
-	if(menuNavigation == 1 || menuNavigation == 4):
+	if(menuNavigation == 1 || menuNavigation == 4 || menuNavigation == 5):
 		menuNavigation = 0
 		hide_show()
 	elif(menuNavigation == 2 || menuNavigation == 3):
