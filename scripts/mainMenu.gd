@@ -22,7 +22,15 @@ func _on_exit_pressed():
 
 
 func _on_start_game_pressed():
-	get_tree().change_scene("res://scenes/World.tscn")
+	var stringCheck = get_node("Container/HBoxContainer/VBoxContainer/song_duration/duration_time").text
+	var strongCheck = str(int(stringCheck))
+	
+	if(stringCheck == strongCheck && int(stringCheck) >= 0):
+		global.trackLength = int(stringCheck)
+		get_tree().change_scene("res://scenes/World.tscn")
+	else:
+		get_node("Container/HBoxContainer/VBoxContainer/song_duration/duration_time").text = ""
+		get_node("Container/HBoxContainer/VBoxContainer/song_duration/duration_time").placeholder_text = "Please be reasonable"
 
 
 #Menu Navigation

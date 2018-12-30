@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/mainMenu.gd" type="Script" id=1]
-[ext_resource path="res://music/Diesel.ogg" type="AudioStream" id=2]
+[ext_resource path="res://music/menu_Projekt.wav" type="AudioStream" id=2]
 [ext_resource path="res://scenes/menuButton.tscn" type="PackedScene" id=3]
 [ext_resource path="res://fonts/new_dynamicfont.tres" type="DynamicFont" id=4]
 
