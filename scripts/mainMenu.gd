@@ -5,9 +5,11 @@ extends Node
 # var b = "textvar"
 var menuNavigation = 0;
 
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
+	get_node("Container/HBoxContainer/VBoxContainer/volume/vslide").value = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master"))
 	hide_show()
 
 #func _process(delta):
@@ -83,3 +85,7 @@ func _on_back_pressed():
 		menuNavigation = 4
 		hide_show()
 
+
+
+func _on_vslide_value_changed(value):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
