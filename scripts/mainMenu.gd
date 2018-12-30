@@ -25,6 +25,7 @@ func _on_start_game_pressed():
 	get_tree().change_scene("res://scenes/World.tscn")
 
 
+#Menu Navigation
 
 func _on_single_player_pressed():
 	menuNavigation = 1
@@ -86,7 +87,7 @@ func _on_back_pressed():
 		hide_show()
 
 
-#VOLUME
+#VOLUME & Sounds
 func _on_vslide_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), value)
 
