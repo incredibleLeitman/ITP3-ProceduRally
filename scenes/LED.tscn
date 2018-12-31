@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://scenes/LEDcolouring.gd" type="Script" id=1]
+[ext_resource path="res://scripts/LEDcolouring.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -68,7 +68,11 @@ radial_segments = 64
 rings = 32
 is_hemisphere = false
 
-[node name="StaticBody" type="StaticBody"]
+[sub_resource type="SphereShape" id=3]
+
+radius = 1.0
+
+[node name="StaticBody" type="StaticBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
@@ -117,5 +121,10 @@ omni_attenuation = 55.7151
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Omni", "Transform", "Visibility" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="." index="2"]
+
+shape = SubResource( 3 )
+disabled = false
 
 
