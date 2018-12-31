@@ -39,3 +39,4 @@ func _on_spawn_obstacle(name):
 	print("adding obsticle of type: " + name + " with name: " + new_node.get_name() + " to " + self.get_name())
 	add_child(new_node)
 	new_node.global_scale(scaleVec)
+	

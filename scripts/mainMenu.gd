@@ -25,7 +25,7 @@ func _on_start_game_pressed():
 	var stringCheck = get_node("Container/HBoxContainer/VBoxContainer/song_duration/duration_time").text
 	var strongCheck = str(int(stringCheck))
 	
-	if(stringCheck == strongCheck && int(stringCheck) >= 0):
+	if((stringCheck == strongCheck && int(stringCheck) >= 0) || stringCheck == ""):
 		global.trackLength = int(stringCheck)
 		get_tree().change_scene("res://scenes/World.tscn")
 	else:

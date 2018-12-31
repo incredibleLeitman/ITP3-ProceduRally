@@ -41,3 +41,8 @@ func _on_player_finished():
 			SignalSupervisor.emit_signal("spawn_obstacle", obstacle)
 	else:
 		SignalSupervisor.emit_signal("spawn_obstacle", "empty")
+	
+	# TODO: implement colour changes in LEDs
+	print(part_dict[current_part].color)
+	#SignalSupervisor.emit_signal("change_colour", part_dict[current_part].color)
+	SignalSupervisor.emit_signal("change_colour", "8e00cf")
