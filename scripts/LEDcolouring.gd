@@ -7,13 +7,13 @@ extends StaticBody
 func _ready():
 	#_on_change_colour("ffffff")
 	SignalSupervisor.connect("change_colour", self, "_on_change_colour")
+	SignalSupervisor.emit_signal("change_colour", global.get_curCol())
 	pass
 	
 func _on_change_colour(colour):
-	print("test...")
 	get_node("OmniLight").light_color = colour
-	get_node("MeshInstance").get_mesh().material.albedo_color = Color(colour)
-	get_node("MeshInstance").get_mesh().material.emission = Color(colour)
+	get_node("MeshInstance").get_mesh().material.albedo_color = colour
+	get_node("MeshInstance").get_mesh().material.emission = colour
 	pass
 
 #func _process(delta):

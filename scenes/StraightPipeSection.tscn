@@ -56,7 +56,7 @@ shape = SubResource( 1 )
 disabled = false
 _sections_unfolded = [ "Transform", "Visibility" ]
 
-[node name="Lights" type="Node" parent="." index="4"]
+[node name="Lights" type="Spatial" parent="." index="4"]
 
 [node name="LED1" parent="Lights" index="0" instance=ExtResource( 4 )]
 

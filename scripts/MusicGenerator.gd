@@ -26,6 +26,11 @@ func play_part(name):
 	player.stream = part_dict[name].loaded_scene
 	player.seek(0)
 	player.playing = true
+	
+	# LEDs that change colour depending on music
+	var propCol = Color(part_dict[current_part].color[0], part_dict[current_part].color[1], part_dict[current_part].color[2], part_dict[current_part].color[3])
+	global.set_curCol(propCol)
+	SignalSupervisor.emit_signal("change_colour", propCol)
 
 func _on_player_finished():
 	var possibilities = part_dict[current_part].parts_after
@@ -42,7 +47,5 @@ func _on_player_finished():
 	else:
 		SignalSupervisor.emit_signal("spawn_obstacle", "empty")
 	
-	# TODO: implement colour changes in LEDs
-	print(part_dict[current_part].color)
-	#SignalSupervisor.emit_signal("change_colour", part_dict[current_part].color)
-	SignalSupervisor.emit_signal("change_colour", "8e00cf")
+	
+	
