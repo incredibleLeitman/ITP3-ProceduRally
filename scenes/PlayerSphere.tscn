@@ -56,7 +56,7 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 
-[node name="PlayerSphere" type="Spatial"]
+[node name="PlayerSphere" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
@@ -81,7 +81,7 @@ _sections_unfolded = [ "material" ]
 
 layers = 1
 light_color = Color( 1, 0, 0, 1 )
-light_energy = 1.22341
+light_energy = 4.55999
 light_indirect_energy = 1.0
 light_negative = false
 light_specular = 1.0
@@ -93,8 +93,8 @@ shadow_bias = 0.1
 shadow_contact = 0.0
 shadow_reverse_cull_face = false
 editor_only = false
-omni_range = 100.0
-omni_attenuation = 1.0
+omni_range = 60.0
+omni_attenuation = 55.7153
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Omni", "Shadow" ]

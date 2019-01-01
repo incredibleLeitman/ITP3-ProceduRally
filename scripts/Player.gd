@@ -88,7 +88,7 @@ func _process(delta):
 		var diff = (normal - transform.basis.y)
 		var rot_vector = diff * delta * normalize_rot_speed * diff.length()
 		
-		print(normal)
+		#print(normal)
 		
 		# Turn more the greater the difference, therefore multiply with length
 		transform.basis.y += rot_vector
