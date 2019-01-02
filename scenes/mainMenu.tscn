@@ -89,7 +89,7 @@ _sections_unfolded = [ "Rect", "Size Flags" ]
 
 [node name="single_player" parent="Container/HBoxContainer/VBoxContainer" index="0" instance=ExtResource( 3 )]
 
-text = "SINKL PLAYRE"
+text = "SIGNEL PLAYRE"
 
 [node name="multi_player" parent="Container/HBoxContainer/VBoxContainer" index="1" instance=ExtResource( 3 )]
 

@@ -6,7 +6,7 @@ var scaleVec = Vector3(1, 1, 1) * scaleVar
 
 var obstacles = {
 	"empty": "",
-	"wall": preload("res://scenes/AnimateWall.tscn"),
+	"wall": preload("res://scenes/wall.tscn"),
 	"gravityChanger": preload("res://scenes/GravityChangeWall.tscn")
 }
 

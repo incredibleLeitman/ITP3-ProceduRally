@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://scripts/wallCollision.gd" type="Script" id=1]
+[ext_resource path="res://scripts/wall.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -63,7 +63,11 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=5]
+
+extents = Vector3( 1, 1, 1 )
+
+[sub_resource type="BoxShape" id=4]
 
 extents = Vector3( 1, 1, 1 )
 
@@ -71,13 +75,13 @@ extents = Vector3( 1, 1, 1 )
 
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 2
-collision_mask = 1
+collision_layer = 8
+collision_mask = 2
 mode = 0
 mass = 1.0
 friction = 1.0
 bounce = 0.0
-gravity_scale = 1.0
+gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = false
 contacts_reported = 5
@@ -113,7 +117,13 @@ skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Geometry", "Pause", "Transform", "Visibility", "material" ]
 
-[node name="CollisionArea" type="Area" parent="." index="1"]
+[node name="CollisionShape" type="CollisionShape" parent="." index="1"]
+
+shape = SubResource( 5 )
+disabled = false
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionArea" type="Area" parent="." index="2"]
 
 input_ray_pickable = false
 input_capture_on_drag = false
@@ -135,10 +145,11 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="CollisionShape" type="CollisionShape" parent="CollisionArea" index="0"]
 
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 disabled = false
 
 

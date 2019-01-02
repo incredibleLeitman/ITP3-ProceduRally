@@ -19,9 +19,9 @@ const UP = Vector3(0, 1, 0)
 const FORWARD = Vector3(1, 0, 0)
 
 var initial_speed = 30
-var increase_per_second = 0.3	
+var increase_per_second = 0.3
 
-var auto_speed = false		
+var auto_speed = false	
 
 var just_collided = false
 
@@ -37,8 +37,7 @@ func _on_collision(what):
 	print("player collision with " + what)
 	#case 1: gravity_changer
 	if (what == "gravity_changer"):
-		#transform.basis = transform.basis.rotated(transform.basis.x, PI)
-		move_speed.x = move_speed.x * 1.1
+		transform.basis = transform.basis.rotated(transform.basis.x, PI)
 	elif (what == "speed_booster"):
 		move_speed.x = move_speed.x * 1.1
 	elif (what == "obstacle"):
