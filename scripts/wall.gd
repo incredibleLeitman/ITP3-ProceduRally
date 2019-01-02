@@ -1,4 +1,4 @@
-extends RigidBody
+extends Spatial
 
 var velocity = Vector3()
 var max_moved = Vector3()
@@ -27,4 +27,5 @@ func _process(delta):
 		self.transform.origin = max_moved
 		# print(self.transform.origin)
 		self.linear_velocity = Vector3(0,0,0)
+	
 	pass
