@@ -5,9 +5,9 @@ extends StaticBody
 # var b = "textvar"
 
 func _ready():
-	#_on_change_colour("ffffff")
-	SignalSupervisor.connect("change_colour", self, "_on_change_colour")
-	SignalSupervisor.emit_signal("change_colour", global.get_curCol())
+	if (get_node("./").get_parent().name == "Lights"):
+		SignalSupervisor.connect("change_colour", self, "_on_change_colour")
+		SignalSupervisor.emit_signal("change_colour", global.get_curCol())
 	pass
 	
 func _on_change_colour(colour):
