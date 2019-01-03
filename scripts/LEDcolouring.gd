@@ -6,10 +6,9 @@ extends StaticBody
 var mat = preload("res://materials/LED.tres")
 
 func _ready():
-	var material = mat.duplicate()
-	get_node("MeshInstance").set_material_override(material) 
+	get_node("MeshInstance").get_mesh().material = mat.duplicate()
 	SignalSupervisor.connect("change_colour", self, "_on_change_colour")
-	SignalSupervisor.emit_signal("change_colour", global.get_curCol())
+	set_colour(global.get_curCol())
 	pass
 	
 func _on_change_colour(colour):

@@ -1,6 +1,6 @@
-[gd_resource type="SphereMesh" load_steps=2 format=2]
+[gd_resource type="SpatialMaterial" format=2]
 
-[sub_resource type="SpatialMaterial" id=1]
+[resource]
 
 render_priority = 0
 flags_transparent = false
@@ -55,14 +55,4 @@ uv2_triplanar_sharpness = 1.0
 proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo", "Emission" ]
-
-[resource]
-
-material = SubResource( 1 )
-custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
-radius = 1.0
-height = 2.0
-radial_segments = 64
-rings = 32
-is_hemisphere = false
 

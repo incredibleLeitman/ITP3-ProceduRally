@@ -2,15 +2,15 @@
 
 [ext_resource path="res://scenes/LED.tscn" type="PackedScene" id=1]
 
-[node name="SpeedBoost" type="Spatial"]
+[node name="SpeedBoost" type="Spatial" index="0"]
 
 transform = Transform( -2.18557e-009, 0, -0.05, 0, 0.05, 0, 0.05, 0, -2.18557e-009, 0, 0, 0 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Speed1" type="Spatial" parent="." index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 25, 0 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="LED1" parent="Speed1" index="0" instance=ExtResource( 1 )]
 
