@@ -1,0 +1,198 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/LED.tscn" type="PackedScene" id=1]
+
+[node name="Spatial" type="Spatial" index="0"]
+
+[node name="Spatial" type="Spatial" parent="." index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED7" parent="Spatial" index="0" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED" parent="Spatial" index="1" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED2" parent="Spatial" index="2" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED3" parent="Spatial" index="3" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED4" parent="Spatial" index="4" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED5" parent="Spatial" index="5" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED6" parent="Spatial" index="6" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED15" parent="Spatial" index="7" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED16" parent="Spatial" index="8" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spatial2" type="Spatial" parent="." index="1"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED7" parent="Spatial2" index="0" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED" parent="Spatial2" index="1" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED2" parent="Spatial2" index="2" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED3" parent="Spatial2" index="3" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED4" parent="Spatial2" index="4" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED5" parent="Spatial2" index="5" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED6" parent="Spatial2" index="6" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED15" parent="Spatial2" index="7" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED16" parent="Spatial2" index="8" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Spatial3" type="Spatial" parent="." index="2"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED7" parent="Spatial3" index="0" instance=ExtResource( 1 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED" parent="Spatial3" index="1" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED2" parent="Spatial3" index="2" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED3" parent="Spatial3" index="3" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED4" parent="Spatial3" index="4" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED5" parent="Spatial3" index="5" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED6" parent="Spatial3" index="6" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED15" parent="Spatial3" index="7" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED16" parent="Spatial3" index="8" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Tail" type="Spatial" parent="." index="3"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED11" parent="Tail" index="0" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED10" parent="Tail" index="1" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED8" parent="Tail" index="2" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED9" parent="Tail" index="3" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED14" parent="Tail" index="4" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED13" parent="Tail" index="5" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -18 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="LED12" parent="Tail" index="6" instance=ExtResource( 1 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 18 )
+_sections_unfolded = [ "Transform" ]
+
+
