@@ -72,7 +72,7 @@ is_hemisphere = false
 
 radius = 1.0
 
-[node name="StaticBody" type="StaticBody" index="0"]
+[node name="StaticBody" type="StaticBody"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
