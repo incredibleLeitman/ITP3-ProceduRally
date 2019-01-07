@@ -1,7 +1,7 @@
 {
 	"default":
 	{
-		"obstacles_spawned": [""],
+		"obstacles_spawned": ["gravityChanger"],
 		"color": [0.5, 0, 0.8, 0.5],
 		"parts_after": ["walk_up", "default"],
 		"music_file": "res://music/default.wav"

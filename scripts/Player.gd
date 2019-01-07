@@ -21,7 +21,7 @@ const FORWARD = Vector3(1, 0, 0)
 var initial_speed = 30
 var increase_per_second = 0.3
 
-var auto_speed = false	
+var auto_speed = true
 
 var just_collided = false
 
