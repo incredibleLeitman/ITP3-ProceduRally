@@ -12,7 +12,6 @@ var obstacles = {
 }
 
 func _ready():
-	#SignalSupervisor.connect("spawn_obstacle", self, "_on_spawn_obstacle")
 	SignalSupervisor.connect("spawn_obstacles", self, "_on_spawn_obstacles")
 
 func _on_spawn_obstacles ():
@@ -44,7 +43,7 @@ func _on_spawn_obstacles ():
 		
 		# TODO: make a vector that properly represents the translation depending on position spawned
 		new_node.set_translation(Vector3(0, -(pipeSize/2) - scaleVar, 0))
-		print("adding obsticle of type: " + obstacle + " with name: " + new_node.get_name() + " to " + self.get_name())
+		print("adding obstacle of type: " + obstacle + " with name: " + new_node.get_name() + " to " + self.get_name())
 		add_child(new_node)
 		new_node.global_scale(scaleVec)
 	

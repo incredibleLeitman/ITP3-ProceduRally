@@ -1,6 +1,7 @@
 extends Spatial
 
 var cur_seed
+#var spawned_sections
 enum Type {STRAIGHT, CURVE}
 
 var pipe_sections = {
@@ -13,6 +14,7 @@ func _ready():
 	# Initialization here
 	SignalSupervisor.connect("spawn_new_pipes", self, "_on_spawn_new_pipes")
 	cur_seed = randi()
+	#spawned_sections = 0
 	pass
 	
 func get_next_random():
@@ -50,13 +52,17 @@ func spawn_section(name, new_entry, new_dir):
 	
 	print("Section spawn: " + name + " with dir: " + String(new_dir))
 	add_child(new_pipe)
+	#spawned_sections += 1
+	#print("spawned_sections: " + String(spawned_sections))
+	print("PipeGenerator having " + String(get_children().size()) + "children")
 	
 	# check for current obstacles and add them to new pipes
-	for obstacle in global.getObstacles():
-		SignalSupervisor.emit_signal("spawn_obstacle", obstacle)
+	#var globstacles = global.getObstacles()
+	#print("calling spawn obstacles from PipeGenerator with list: " + String(globstacles))
+	SignalSupervisor.emit_signal("spawn_obstacles")
 	
 	# spawn more pipes until reach a curve
-	if name == "straight":
+	if name == "straight": #|| spawned_sections == 1:
 		var exit_point = new_pipe.get_exit_point()
 		var exit_dir = new_pipe.get_exit_dir()
 		if exit_point == null:
@@ -64,6 +70,7 @@ func spawn_section(name, new_entry, new_dir):
 		elif exit_dir == null:
 			print("Exit dir not found!")
 		else:
-			#SignalSupervisor.emit_signal("spawn_new_pipes", _on_spawn_new_pipes(exit_point, exit_dir))
 			SignalSupervisor.emit_signal("spawn_new_pipes", exit_point, exit_dir)
+	#else:
+	#	spawned_sections = 0
 	

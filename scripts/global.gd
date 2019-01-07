@@ -16,7 +16,7 @@ func setObstacles (var i_obs):
 	return false
 	
 func getObstacles ():
-	return globstacles
+	return globstacles.duplicate()
 
 #global array for current light colour
 var curCol = []
