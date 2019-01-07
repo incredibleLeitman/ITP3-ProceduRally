@@ -1,15 +1,15 @@
 {
 	"default":
 	{
-		"obstacles_spawned": [],
-		"color": [0.5, 0.5, 0.5, 0.5],
+		"obstacles_spawned": [""],
+		"color": [0.5, 0, 0.8, 0.5],
 		"parts_after": ["walk_up", "default"],
 		"music_file": "res://music/default.wav"
 	},
 
 	"atmosphere":
 	{
-		"obstacles_spawned": [],
+		"obstacles_spawned": ["speedBoost"],
 		"color": [0.2, 0.9, 0.2, 0.5],
 		"parts_after": ["default"],
 		"music_file": "res://music/atmosphere.wav"

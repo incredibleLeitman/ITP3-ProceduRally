@@ -18,6 +18,15 @@ func setObstacles (var i_obs):
 func getObstacles ():
 	return globstacles
 
+#global array for current light colour
+var curCol = []
+func set_curCol(colour):
+	curCol = colour
+	pass
+
+func get_curCol():
+	return curCol
+
 # TODO: maybe insert global event here? (Pause, Escape...? )
 #func _process(delta):
 #	if Input.is_action_pressed("ui_accept"):

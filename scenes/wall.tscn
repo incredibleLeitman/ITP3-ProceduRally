@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scripts/wall.gd" type="Script" id=1]
 
 [sub_resource type="SpatialMaterial" id=1]
 
@@ -61,25 +63,29 @@ subdivide_width = 0
 subdivide_height = 0
 subdivide_depth = 0
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=5]
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="Wall" type="RigidBody"]
+[sub_resource type="BoxShape" id=4]
+
+extents = Vector3( 1, 1, 1 )
+
+[node name="Wall" type="RigidBody" index="0"]
 
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 2
-collision_mask = 1
+collision_layer = 8
+collision_mask = 2
 mode = 0
 mass = 1.0
 friction = 1.0
 bounce = 0.0
-gravity_scale = 1.0
+gravity_scale = 0.0
 custom_integrator = false
 continuous_cd = false
-contacts_reported = 0
-contact_monitor = false
+contacts_reported = 5
+contact_monitor = true
 sleeping = false
 can_sleep = true
 axis_lock_linear_x = false
@@ -92,6 +98,7 @@ linear_velocity = Vector3( 0, 0, 0 )
 linear_damp = -1.0
 angular_velocity = Vector3( 0, 0, 0 )
 angular_damp = -1.0
+script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
@@ -112,8 +119,37 @@ _sections_unfolded = [ "Geometry", "Pause", "Transform", "Visibility", "material
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="1"]
 
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 disabled = false
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="CollisionArea" type="Area" parent="." index="2"]
+
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="CollisionArea" index="0"]
+
+shape = SubResource( 4 )
+disabled = false
 
 

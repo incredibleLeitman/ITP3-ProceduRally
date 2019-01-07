@@ -38,7 +38,7 @@ func _on_exit_area_entered(body):
 	global.playerWinner = player.playerName
 	global.passedSections = player.passedSections
 	
-	SignalSupervisor.emit_signal("player_collision")
+	SignalSupervisor.emit_signal("player_collision", "gravity_changer")
 	
 	# remove passed pipe section
 	if has_node("."):
