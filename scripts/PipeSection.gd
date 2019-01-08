@@ -23,6 +23,8 @@ func get_exit_dir():
 	return new
 
 func _on_entry_area_entered(body):
+	#print("on entry area entered with body: " + body)
+	print("on entry area entered with body: " + String(typeof(body)))
 	if spawns_new_pipes:
 		SignalSupervisor.emit_signal("spawn_new_pipes",
 			get_exit_point(), get_exit_dir())

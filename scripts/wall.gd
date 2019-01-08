@@ -41,5 +41,5 @@ func _process(delta):
 
 func _on_collision_area_entered(body):
 	# for collision
-	SignalSupervisor.emit_signal("player_collision", "obstacle")
+	SignalSupervisor.emit_signal("player_collision", "wall")
 	pass
