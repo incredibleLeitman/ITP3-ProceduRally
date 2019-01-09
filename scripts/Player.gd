@@ -34,7 +34,7 @@ func _ready():
 
 func _on_collision(what):
 	# TODO: distinguish between different objects
-	print("player collision with " + what)
+	global.printForType("CollisionHandling", "player collision with " + what)
 	#case 1: gravityChanger
 	if (what == "gravityChangeWall"):
 		transform.basis = transform.basis.rotated(transform.basis.x, PI)
@@ -89,8 +89,6 @@ func _process(delta):
 		var normal = pull_ray_down.get_collision_normal()
 		var diff = (normal - transform.basis.y)
 		var rot_vector = diff * delta * normalize_rot_speed * diff.length()
-		
-		#print(normal)
 		
 		# Turn more the greater the difference, therefore multiply with length
 		transform.basis.y += rot_vector

@@ -21,7 +21,6 @@ func get_next_random():
 	var arr_seed = rand_seed(cur_seed)
 	var type = abs(arr_seed[0])
 	cur_seed = arr_seed[1]
-	
 	return type
 
 func _on_spawn_new_pipes(new_entry, new_dir):
@@ -50,25 +49,25 @@ func spawn_section(name, new_entry, new_dir):
 	new_pipe.transform.basis.x = rand_vec.cross(new_dir).normalized()
 	new_pipe.transform.basis.y = new_pipe.transform.basis.x.cross(new_pipe.transform.basis.z).normalized()
 	
-	print("Section spawn: " + name + " with dir: " + String(new_dir))
+	global.printForType("PipeGenerator", "Section spawn: " + name + " on point " + String(new_entry) + " with dir: " + String(new_dir))
 	add_child(new_pipe)
 	#spawned_sections += 1
-	#print("spawned_sections: " + String(spawned_sections))
-	print("PipeGenerator having " + String(get_children().size()) + "children")
+	#global.printForType("PipeGenerator", "spawned_sections: " + String(spawned_sections))
+	global.printForType("PipeGenerator", "PipeGenerator having " + String(get_children().size()) + "children")
 	
 	# check for current obstacles and add them to new pipes
 	#var globstacles = global.getObstacles()
-	#print("calling spawn obstacles from PipeGenerator with list: " + String(globstacles))
+	#printForType("PipeGenerator", "calling spawn obstacles from PipeGenerator with list: " + String(globstacles))
 	SignalSupervisor.emit_signal("spawn_obstacles")
 	
 	# spawn more pipes until reach a curve
-	if name == "straight": #|| spawned_sections == 1:
+	if name == "straight": # || spawned_sections == 1:
 		var exit_point = new_pipe.get_exit_point()
 		var exit_dir = new_pipe.get_exit_dir()
 		if exit_point == null:
-			print("Exit Point not found!")
+			global.printForType("PipeGenerator", "Exit Point not found!")
 		elif exit_dir == null:
-			print("Exit dir not found!")
+			global.printForType("PipeGenerator", "Exit dir not found!")
 		else:
 			SignalSupervisor.emit_signal("spawn_new_pipes", exit_point, exit_dir)
 	#else:
