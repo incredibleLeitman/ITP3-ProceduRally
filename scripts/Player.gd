@@ -47,7 +47,7 @@ func _on_collision(what):
 	
 	just_collided = true # signal asynchronous -> wait 1 frame
 
-func _process(delta):
+func _physics_process(delta):
 	# Handle movement
 	var movement = Vector3(0, 0, 0)
 	
