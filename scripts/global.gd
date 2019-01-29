@@ -8,24 +8,39 @@ var trackLength = 400 #length of the track in seconds -> TODO: make GUI elements
 var globstacles = []
 func setObstacles (var i_obs):
 	if (i_obs != globstacles):
-		print("setting obstacles to: " + String(i_obs))
+		global.printForType("ObstacleSpawner", "setting obstacles to: " + String(i_obs))
 		globstacles = i_obs
 		return true
 		
-	print("obstacles not changed")
+	global.printForType("ObstacleSpawner", "obstacles not changed")
 	return false
 	
 func getObstacles ():
-	return globstacles
+	return globstacles.duplicate()
 
 #global array for current light colour
-var curCol = []
+#var curCol = []
+var curCol
 func set_curCol(colour):
 	curCol = colour
 	pass
 
 func get_curCol():
+	#return curCol.duplicate()
 	return curCol
+	
+var debug = true
+var debugFlags = [
+	"Generic",
+	#"ObstacleSpawner",
+	"PipeGenerator"
+	#"CollisionHandling"
+	]
+
+func printForType (var text, var type):
+	if debug && debugFlags.has(type):
+		print(text)
+	
 
 # TODO: maybe insert global event here? (Pause, Escape...? )
 #func _process(delta):

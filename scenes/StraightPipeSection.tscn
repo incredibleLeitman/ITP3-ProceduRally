@@ -13,8 +13,13 @@ data = PoolVector3Array( 0, -0.4583, 0.0313, 0, -0.4583, 0, -0.0117, -0.4583, 0.
 
 _sections_unfolded = [ "Transform" ]
 
+[node name="Entry" parent="." index="1"]
+
+editor/display_folded = true
+
 [node name="Exit" parent="." index="2"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40 )
 
 [node name="ExitArea" parent="Exit" index="1"]
@@ -42,8 +47,8 @@ _sections_unfolded = [ "Geometry", "LOD", "Transform" ]
 
 input_ray_pickable = true
 input_capture_on_drag = false
-collision_layer = 1025
-collision_mask = 1025
+collision_layer = 2
+collision_mask = 1
 friction = 1.0
 bounce = 0.0
 constant_linear_velocity = Vector3( 0, 0, 0 )

@@ -1,6 +1,6 @@
 extends Node
 
-signal spawn_obstacle
+signal spawn_obstacles
 signal spawn_new_pipes
 signal music_stops
 signal player_collision

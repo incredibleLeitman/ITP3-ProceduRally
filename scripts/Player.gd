@@ -21,7 +21,7 @@ const FORWARD = Vector3(1, 0, 0)
 var initial_speed = 30
 var increase_per_second = 0.3
 
-var auto_speed = false	
+var auto_speed = false
 
 var just_collided = false
 
@@ -34,20 +34,20 @@ func _ready():
 
 func _on_collision(what):
 	# TODO: distinguish between different objects
-	print("player collision with " + what)
-	#case 1: gravity_changer
-	if (what == "gravity_changer"):
+	global.printForType("CollisionHandling", "player collision with " + what)
+	#case 1: gravityChanger
+	if (what == "gravityChangeWall"):
 		transform.basis = transform.basis.rotated(transform.basis.x, PI)
-	elif (what == "speed_booster"):
+	elif (what == "speedBoost"):
 		move_speed.x = move_speed.x * 1.1
-	elif (what == "obstacle"):
+	elif (what == "wall"):
 		move_speed.x = initial_speed
 	
 	# TODO: Make pull_speed lower and slowly go back to default value
 	
 	just_collided = true # signal asynchronous -> wait 1 frame
 
-func _process(delta):
+func _physics_process(delta):
 	# Handle movement
 	var movement = Vector3(0, 0, 0)
 	
@@ -89,8 +89,6 @@ func _process(delta):
 		var normal = pull_ray_down.get_collision_normal()
 		var diff = (normal - transform.basis.y)
 		var rot_vector = diff * delta * normalize_rot_speed * diff.length()
-		
-		#print(normal)
 		
 		# Turn more the greater the difference, therefore multiply with length
 		transform.basis.y += rot_vector

@@ -16,9 +16,9 @@ func _ready():
 	var exit_dir = StartCast.cast_to
 	
 	if exit_point == null:
-		print("Exit Point not found!")
+		global.printForType("Generic", "Exit Point not found!")
 	elif exit_dir == null:
-		print("Exit dir not found!")
+		global.printForType("Generic", "Exit dir not found!")
 	else:
 		SignalSupervisor.emit_signal("spawn_new_pipes", exit_point, exit_dir)
 

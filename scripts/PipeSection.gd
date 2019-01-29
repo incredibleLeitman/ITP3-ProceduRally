@@ -27,6 +27,9 @@ func get_exit_dir():
 func _on_entry_area_entered(body):
 	Wall.toggle(true)
 	
+	#print("on entry area entered with body: " + body)
+	global.printForType("CollisionHandling", "on entry area entered with body: " + String(typeof(body)))
+
 	if spawns_new_pipes:
 		SignalSupervisor.emit_signal("spawn_new_pipes",
 			get_exit_point(), get_exit_dir())
@@ -38,11 +41,9 @@ func _on_exit_area_entered(body):
 	#adding passed sections
 	var player = get_tree().get_root().get_node("World/Player")
 	player.passedSections += 1
-	print("player passedSections: " + String(player.passedSections))
+	global.printForType("Generic", "player passedSections: " + String(player.passedSections))
 	global.playerWinner = player.playerName
 	global.passedSections = player.passedSections
-	
-	SignalSupervisor.emit_signal("player_collision", "gravity_changer")
 	
 	# remove passed pipe section
 	if has_node("."):

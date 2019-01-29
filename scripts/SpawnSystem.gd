@@ -12,32 +12,38 @@ var obstacles = {
 }
 
 func _ready():
-	SignalSupervisor.connect("spawn_obstacle", self, "_on_spawn_obstacle")
+	SignalSupervisor.connect("spawn_obstacles", self, "_on_spawn_obstacles")
 
-func _on_spawn_obstacle(name):
-	# TODO generalize the function again
-	if not obstacles.has(name):
-		print("Error: No obstacle with name %s" % [name])
-		return
-
+func _on_spawn_obstacles ():
+	var globstacles = global.getObstacles()
+	global.printForType("ObstacleSpawner", "spawning obstacles: " + String(globstacles))
 	# remove existing other obstacles:
 	for node in get_children():
 		# TODO: setup base type for obstacles
-        #if(node.is_type(type)):
-		if (node.get_name().begins_with(name) == false): # remove all non-current-obstacles
+		var contains = false;
+		for obstacle in globstacles:
+			if (node.get_name().begins_with(obstacle)): 
+				contains = true
+				globstacles.erase(obstacle) # obstacle already exists -> not spawn again
+				break
+
+		if (contains == false): # current obstacle should not be present
+			global.printForType("ObstacleSpawner", "removing " + node.get_name())
 			node.free()
 
-	if name == "empty": # do not create empty obsticles, just remove current
-		return 
-
-	# creating new obsticle:
-	var new_node = obstacles[name].instance()
-	new_node.set_name(name + String(get_children().size()))
-	#new_node.global_scale(scaleVec) # EDITED lem: throws error "!is_inside_tree() ' is true. returned: Transform()" because is not (yet) in tree --> moved after adding to tree
+	for obstacle in globstacles:
+		if not obstacles.has(obstacle):
+			continue
 	
-	# TODO: make a vector that properly represents the translation depending on position spawned
-	new_node.set_translation(Vector3(0, -(pipeSize/2) - scaleVar, 0))
-	print("adding obsticle of type: " + name + " with name: " + new_node.get_name() + " to " + self.get_name())
-	add_child(new_node)
-	new_node.global_scale(scaleVec)
+		# creating new obstacle:
+		global.printForType("ObstacleSpawner", "creating obstacle: " + obstacle)
+		var new_node = obstacles[obstacle].instance()
+		new_node.set_name(obstacle + String(get_children().size()))
+		#new_node.global_scale(scaleVec) # EDITED lem: throws error "!is_inside_tree() ' is true. returned: Transform()" because is not (yet) in tree --> moved after adding to tree
+		
+		# TODO: make a vector that properly represents the translation depending on position spawned
+		new_node.set_translation(Vector3(0, -(pipeSize/2) - scaleVar, 0))
+		global.printForType("ObstacleSpawner", "adding obstacle of type: " + obstacle + " with name: " + new_node.get_name() + " to " + self.get_name())
+		add_child(new_node)
+		new_node.global_scale(scaleVec)
 	
