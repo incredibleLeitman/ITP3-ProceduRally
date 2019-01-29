@@ -44,6 +44,7 @@ func _on_spawn_obstacles ():
 		# TODO: make a vector that properly represents the translation depending on position spawned
 		new_node.set_translation(Vector3(0, -(pipeSize/2) - scaleVar, 0))
 		global.printForType("ObstacleSpawner", "adding obstacle of type: " + obstacle + " with name: " + new_node.get_name() + " to " + self.get_name())
+
 		add_child(new_node)
 		new_node.global_scale(scaleVec)
 	
