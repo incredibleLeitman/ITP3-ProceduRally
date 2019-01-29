@@ -9,6 +9,8 @@ onready var ExitCast = Exit.get_node("ExitPoint")
 onready var EntryArea = Entry.get_node("EntryArea")
 onready var ExitArea = Exit.get_node("ExitArea")
 
+onready var Wall = EntryCast.get_node("GreatWall")
+
 export(bool) var spawns_new_pipes = false
 
 func _ready():
@@ -23,8 +25,11 @@ func get_exit_dir():
 	return new
 
 func _on_entry_area_entered(body):
+	Wall.toggle(true)
+	
 	#print("on entry area entered with body: " + body)
 	global.printForType("CollisionHandling", "on entry area entered with body: " + String(typeof(body)))
+
 	if spawns_new_pipes:
 		SignalSupervisor.emit_signal("spawn_new_pipes",
 			get_exit_point(), get_exit_dir())
