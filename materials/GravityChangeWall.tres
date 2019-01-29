@@ -7,6 +7,11 @@
 
 render_priority = 0
 shader = ExtResource( 1 )
+shader_param/color_multiplier = null
+shader_param/uv_scale = 0.5
+shader_param/mix_move = true
+shader_param/shifter = null
+shader_param/alpha_mult = null
 shader_param/noise_tex = ExtResource( 2 )
 _sections_unfolded = [ "shader_param" ]
 

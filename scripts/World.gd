@@ -14,6 +14,7 @@ func _ready():
 
 	var exit_point = StartCast.translation
 	var exit_dir = StartCast.cast_to
+	
 	if exit_point == null:
 		print("Exit Point not found!")
 	elif exit_dir == null:
