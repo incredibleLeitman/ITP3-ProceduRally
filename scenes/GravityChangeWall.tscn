@@ -14,7 +14,7 @@ subdivide_depth = 0
 
 extents = Vector3( 1, 1, 1 )
 
-[node name="GravityChangeWall" type="Spatial"]
+[node name="GravityChangeWall" type="Spatial" index="0"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10 )
 script = ExtResource( 1 )
@@ -74,7 +74,7 @@ angular_damp = 1.0
 priority = 0.0
 monitoring = true
 monitorable = true
-collision_layer = 4
+collision_layer = 8
 collision_mask = 1
 audio_bus_override = false
 audio_bus_name = "Master"

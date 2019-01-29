@@ -18,7 +18,7 @@ distance_field = false
 
 default_font = SubResource( 1 )
 
-[node name="mainMenu" type="Node" index="0"]
+[node name="mainMenu" type="Node"]
 
 script = ExtResource( 1 )
 
